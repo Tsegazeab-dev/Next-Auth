@@ -20,7 +20,12 @@ const authHandler = NextAuth({
                 }
             }
         }),
-    ]
+    ],
+
+    // to redirect the default route which is /api/auth/signIn to /login and add customized login page instead of using the default page by the providers.
+    pages: {
+        signIn: '/login'
+    }
 });
 
 export {authHandler as GET, authHandler as POST}
