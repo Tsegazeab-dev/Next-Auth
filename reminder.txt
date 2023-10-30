@@ -1,0 +1,27 @@
+Prisma ORM
+----------
+ - npm install prisma --save-dev
+ - npx prisma init --datasource-provider "mysql/postgresql/..."
+
+ * This creates a new prisma directory with your Prisma schema file and configures the given database type as your database.
+
+
+postgresql
+----------
+ - it is a relational database.
+ - we can use free postgresql database from neon.tech
+ - use the psq database url from neon and add it to .env file created by prisma
+
+ * "npx prisma db pull"   -> to connect the database to prisma  
+ * "npx prisma generate"  -> to generate prisma client
+
+
+ * we write the model or the tables and the necessary fields on schema.prisma 
+  examples: model user{
+                       id Int @id @default(autoincrement())
+                       email String @unique
+                       password String
+}
+ * "npx prisma migrate dev --name "commit message" to push the table we create to the database
+
+ * "npx prisma studio" to get prisma sql code editor so we can insert data manually to the tables we created
